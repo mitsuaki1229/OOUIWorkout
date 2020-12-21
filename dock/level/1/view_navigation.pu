@@ -1,0 +1,28 @@
+@startuml Memo app
+
+!define TRANSACTION_MARK_COLOR FFAA00
+
+package "Model" as model {
+
+  entity "メモ" as memo <<M,MASTER_MARK_COLOR>> {
+  }
+
+  entity "あるメモ" as memo_detail <<M,MASTER_MARK_COLOR>> {
+  }
+}
+
+package "Interaction" as interaction {
+
+  entity "メモ一覧" as memo_List_view <<M,MASTER_MARK_COLOR>> {
+  }
+
+  entity "あるメモ" as memo_detail_view <<M,MASTER_MARK_COLOR>> {
+  }
+}
+
+memo -|> memo_detail
+memo_List_view -|> memo_detail_view
+memo - memo_List_view
+memo_detail - memo_detail_view
+
+@enduml
